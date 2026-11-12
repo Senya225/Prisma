@@ -13,3 +13,11 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User{
+  id Int @id @default(autoicrement())
+  email String @unique
+  name String?
+  creareAt DateTime @default(now())
+  post Post[]
+}
